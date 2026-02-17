@@ -5,6 +5,7 @@
 // Test a database connection:
 // nodemon mongodb-test.js
 
+import "dotenv/config";
 import db from "./mongodb.js";
 
 async function run() {

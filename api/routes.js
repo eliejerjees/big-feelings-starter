@@ -9,7 +9,7 @@ import express from 'express';
 var router = express.Router();
 
 // 👉 import database reference here (Chapter 10 wiki) ...
-
+import db from "./database/mongodb.js";
 // 👈
 
 //////////////////////////////////////
@@ -22,12 +22,18 @@ router.get("/api", async (req, res) => {
 
 
 // 👉 add endpoint to get all the rows in the database (Chapter 10 wiki) ...
-
+router.get("/api/feelings", async function (req, res) {
+    let result = await db.getAll();
+    res.json(result);
+});
 // 👈
 
 
 // 👉 add endpoint to insert test data (Chapter 10 wiki) ...
-
+router.get("/api/addOneTest", async function (req, res) {
+    let result = await db.addOneTest();
+    res.send({ message: result });
+});
 // 👈
 
 
