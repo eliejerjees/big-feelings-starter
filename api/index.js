@@ -9,9 +9,9 @@ const port = 3000;
 
 // make all files inside /public available using static
 import path from "path";
-import { URL } from "url";
-const __filename = new URL("", import.meta.url).pathname;
-const __dirname = new URL(".", import.meta.url).pathname;
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, '../public')));
 
 
